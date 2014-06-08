@@ -1,0 +1,46 @@
+{
+  "name": "ceres-solver",
+  "version": "1.9.0",
+  "summary": "Ceres Solver is an open source C++ library for modeling and solving large complicated nonlinear least squares problems.",
+  "homepage": "http://ceres-solver.org",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": [
+    "Sameer Agarwal",
+    "Keir Mierle"
+  ],
+  "source": {
+    "git": "https://ceres-solver.googlesource.com/ceres-solver",
+    "tag": "1.9.0"
+  },
+  "source_files": [
+    "include/ceres/*.h",
+    "include/ceres/internal/*.h",
+    "internal/ceres/*{.h,.cc}",
+    "internal/ceres/**/*{.h,.cc}",
+    "internal/ceres/miniglog/glog/*{.h,.cc}"
+  ],
+  "exclude_files": "internal/ceres/*test.cc",
+  "public_header_files": [
+    "include/ceres/*.h",
+    "include/ceres/internal/*.h"
+  ],
+  "header_mappings_dir": "include",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "dependencies": {
+    "eigen": [
+      "~> 3.2.0"
+    ]
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": [ 
+      "${PODS_ROOT}/ceres-solver/include",
+      "${PODS_ROOT}/ceres-solver/internal"
+    ]
+  },
+  "requires_arc": false
+}

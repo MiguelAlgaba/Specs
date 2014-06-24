@@ -18,29 +18,27 @@
   "source_files": [
     "include/ceres/*.h",
     "include/ceres/internal/*.h",
+    "config/ceres/internal/*.h",
     "internal/ceres/*{.h,.cc}",
     "internal/ceres/**/*{.h,.cc}",
     "internal/ceres/miniglog/glog/*{.h,.cc}"
   ],
-  "exclude_files": "internal/ceres/*test.cc",
-  "public_header_files": [
-    "include/ceres/*.h",
-    "include/ceres/internal/*.h"
+  "exclude_files": [
+    "internal/ceres/*test.cc",
+    "internal/ceres/blas.cc"
   ],
   "header_mappings_dir": "include",
   "platforms": {
     "ios": "6.0"
   },
+  "compiler_flags": "-DCERES_NO_LAPACK -DCERES_NO_SUITESPARSE -DCERES_NO_THREADS -DCERES_NO_CXSPARSE -DCERES_STD_UNORDERED_MAP",
   "dependencies": {
     "eigen": [
       "~> 3.2.0"
     ]
   },
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": [ 
-      "${PODS_ROOT}/ceres-solver/include",
-      "${PODS_ROOT}/ceres-solver/internal"
-    ]
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/eigen\", \"${PODS_ROOT}/ceres-solver/include\", \"${PODS_ROOT}/ceres-solver/config\", \"${PODS_ROOT}/ceres-solver/internal\""
   },
   "requires_arc": false
 }
